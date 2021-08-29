@@ -1,0 +1,75 @@
+<%- include('header.ejs') %>
+<div class ="container py-md-5">
+  <%- include('flash.ejs') %>
+    <div class="col-lg-12 py-3 py-md-5">
+      <%  if(user.isRecruiter) { %>
+        <p class="display-4">Jobs Posted by You</p>
+    <table class="table table-hover table-striped table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Job Title</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Posted On</th>
+            <th scope="col">Last Date</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(jobs.length > 0) { %>
+            <% jobs.forEach((job)=>{ %>
+              
+          <tr>
+            <td><%= job.title %></td>
+            <td><%=job.companyName %></td>
+            <td><%= job.postedDate %></td>
+            <td><%= job.expireDate %></td>
+            <td><a href="candidatesApplied/<%= job._id%>">View Candidates </a></td>
+          </tr>
+          <% })%>
+          <%  } else { %>
+            <tr>
+              <td colspan="6">
+                <p>You have'nt posted any job.</p>
+              </td>
+            </tr>
+            <% } %>
+        </tbody>
+        </table>
+        <% } else { %>
+          <p class="display-4">Available Jobs</p>
+        <table class="table table-hover table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Job Title</th>
+              <th scope="col">Company Name</th>
+              <th scope="col">Posted On</th>
+              <th scope="col">Last Date</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% if(jobs.length > 0) { %>
+            <% jobs.forEach((job)=>{ %>
+              
+          <tr>
+            <td><%= job.title %></td>
+            <td><%=job.companyName %></td>
+            <td><%= job.postedDate %></td>
+            <td><%= job.expireDate %></td>
+            <td><a href="viewJob/<%= job._id %>" >Apply</a></td>
+          </tr>
+          <% })%>
+          <%  } else { %>
+            <tr>
+              <td colspan="6">
+                <p>There is no job available.</p>
+              </td>
+            </tr>
+        </tbody>
+        <% } %>
+      </table>
+      <% } %>
+      </div>
+</div>
+
+<%- include('footer.ejs') %>

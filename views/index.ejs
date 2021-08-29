@@ -1,0 +1,123 @@
+<%- include('header.ejs') %>
+<div class ="container py-md-5">
+  <%- include('flash.ejs') %>
+  <!-- User login form-->
+    <div class="row align-items-center">
+        <div class="col-lg-5 py-3 py-md-5">
+            <h1 class="display-5">Log In</h1>
+            <form action="/login" method="POST" id="login-form">
+                <div class="form-group">
+                  <label for="username-register" class="text-muted mb-1"
+                    ><small>Email</small></label
+                  >
+                  <input
+                    name="username"
+                    id="username-login"
+                    class="form-control"
+                    type="text"
+                    placeholder="Enter username or Email"
+                    autocomplete="off"
+                  />
+                </div>
+          
+                <div class="form-group">
+                  <label for="password-register" class="text-muted mb-1"
+                    ><small>Password</small></label
+                  >
+                  <input
+                    name="password"
+                    id="password-login"
+                    class="form-control"
+                    type="password"
+                    placeholder="Enter your password"
+                  />
+                </div>
+                <div class="form-check">
+                  <input name="isRecruiter" class="form-check-input" type="checkbox" value="yes" id="isRecruiter">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Are you a Recruiter?
+                  </label>
+                </div>
+                <button
+                  type="submit"
+                  class="py-3 mt-4 btn btn-lg btn-success btn-block"
+                >
+                  Log In
+                </button>
+              </form>
+          </p>
+        </div>
+        <!-- user sign up form-->
+<div class="col-lg-7 pl-lg-5 pb-3 py-lg-5">
+    <h1 class="display-5">Sign Up</h1>
+    <form action="/register" method="POST" id="registration-form">
+      <div class="form-group">
+        <label for="fullname-register" class="text-muted mb-1"
+          ><small>Fullname</small></label
+        >
+        <input
+          name="fullname"
+          id="fullname-register"
+          class="form-control"
+          type="text"
+          placeholder="Enter your fullname"
+          autocomplete="off"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email-register" class="text-muted mb-1"
+          ><small>Email</small></label
+        >
+        <input
+          name="email"
+          id="email-register"
+          class="form-control"
+          type="email"
+          onkeyup="debouncedFunction(event.target.value)"
+          placeholder="you@example.com"
+          autocomplete="off"
+        />
+        <p id="emailExistsResult" hidden></p>
+      </div>
+      <div class="form-check">
+        <input name="isRecruiter" onChange="showCompanyInput()" class="form-check-input" type="checkbox" value="yes" id="isRecruiterSignUp">
+        <label class="form-check-label" for="defaultCheck1">
+          Are you a Recruiter?
+        </label>
+      </div>
+      <div class="form-group" id="companyName-div" hidden>
+        <label for="companyname-register" class="text-muted mb-1"
+          ><small>Company Name</small></label
+        >
+        <input
+          name="companyName"
+          id="companyName-register"
+          class="form-control"
+          type="text"
+          placeholder="Enter your Company Name"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password-register" class="text-muted mb-1"
+          ><small>Password</small></label
+        >
+        <input
+          name="password"
+          id="password-register"
+          class="form-control"
+          type="password"
+          placeholder="Create a password"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="py-3 mt-4 btn btn-lg btn-success btn-block"
+      >
+        Sign Up
+      </button>
+    </form>
+</div>
+  </div><%- include('footer.ejs') %>
