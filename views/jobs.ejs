@@ -145,7 +145,7 @@ width:200px;
 
 .asdf:hover{
    /* background-color: beige;  */
-   background-image: url("https://ae01.alicdn.com/kf/HTB1Gn19ik9WBuNjSspeq6yz5VXaT/light-color-wood-background-for-newborn-baby-simulation-plank-cloth-fruit-cake-backdrop-retro-board-computer.jpg_640x640.jpg");
+   background-image: url("https://png.pngtree.com/thumb_back/fh260/back_pic/03/76/37/2257bea537b28e6.jpg");
    
 }
 .new-filter:hover{
@@ -333,12 +333,13 @@ cursor: pointer;
         </table>
         <% } else { %>
           <p class="display-4">Available Jobs</p>
-
+          <% if(jobs.length > 0) { %>
+            <% jobs.forEach((job)=>{ %>
 
 <div  class=" row  container p-0  mt-3 ml-1 asdf cardnumber" style="overflow: hidden;">
-        <a title="Walk in Interviews for PTI Teachers in Alpine Convent School"class=" anchor1 link p-1"  href="/description/Primary_School_Teacher_in_KP_EDUCATIONAL_ACADEMY" class="content active " style="width: 100%" target="_blank">
+        <a title="Reqirement for <%= job.title %>"class=" anchor1 link p-1"  href="viewJob/<%= job._id %>" class="content active " style="width: 100%" target="_blank">
         <div style="text-align: center" class="anchor-title">
-            Primary <b>School Teacher</b> in KP EDUCATIONAL ACADEMY
+            Requirement for <b><%= job.title %></b> 
         </div>
         <span class="bk-warning rupees" >
             <!-- <em></em>  -->
@@ -347,51 +348,30 @@ cursor: pointer;
             <span class="pl-5 text-dark" >
                 <img class="mb-1" src="https://www.pinclipart.com/picdir/middle/180-1801203_indian-rs-symbol-images-indian-rupee-symbol-png.png" width="18" >  Not disclosed
         </span>
-        <span class="pl-5 text-dark"><img src="http://cdn.onlinewebfonts.com/svg/img_356662.png" class="mb-1 mr-1" width="14.5"> 1-6 yrs</span>
+        <span class="pl-5 text-dark"><img src="http://cdn.onlinewebfonts.com/svg/img_356662.png" class="mb-1 mr-1" width="14.5"> 0-2 yrs</span>
         </div>
         <div class="more text-dark p-2">
             <span class='mb-1' style="display: flex; ">
-            <div><em>Keyskills:</em></div>
-            <div class="pl-5 text-dark">Primary Teacher,Pre Primary Teacher,montessori,nursery teachers,nursery...</div>
+            <div><em>Posted on</em></div>
+            <div class="pl-5 text-dark"><%= job.postedDate %></div>
             </span>
-            
-            <span class='mb-2' style="display:flex; ">
-            <div>&nbsp;&nbsp;<em>Job: description</em></div>
-            <div class="pl-4 text-dark"> We are Hiring primary School Teachers requirement in Acroos Hyderabad .
-                Subjects to be known are .....</div>
-            </span>
+            <span class='mb-1' style="display: flex; ">
+              <div><em>LAst date to apply:</em></div>
+              <div class="pl-5 text-dark"><%= job.expireDate %></div>
+              </span>
+    
         </div>
         </a>
         <span class="other-details p-2" style="width: 100%">
             <label class="current-status-available"> Current-Status:Available</label><img src="https://cdn1.iconfinder.com/data/icons/soft-toolbar-icons/512/check_apply_approved-512.png" width="15" class="ml-2 mb-1">
         <span style="float: right ;"><em>Posted by:</em>
                 <img src="https://imageog.flaticon.com/icons/png/512/3/3657.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF" width="25" class="mb-1">
-            P Kiran Kumar</span>
+                <%=job.companyName %></span>
         </span>
 </div>
 
 
-        <table class="table table-hover table-striped table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">Job Title</th>
-              <th scope="col">Company Name</th>
-              <th scope="col">Posted On</th>
-              <th scope="col">Last Date</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-          <% if(jobs.length > 0) { %>
-            <% jobs.forEach((job)=>{ %>
-              
-          <tr>
-            <td><%= job.title %></td>
-            <td><%=job.companyName %></td>
-            <td><%= job.postedDate %></td>
-            <td><%= job.expireDate %></td>
-            <td><a href="viewJob/<%= job._id %>" >Apply</a></td>
-          </tr>
+      
           <% })%>
           <%  } else { %>
             <tr>
