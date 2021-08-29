@@ -1,6 +1,6 @@
 const mongodb = require("mongodb");
 const CONNECTIONSTRING =
-  "mongodb+srv://nekkunj:nikunj24@cluster0.eifta.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+  "mongodb+srv://nekkunj:nikunj24@cluster0.eifta.mongodb.net/naukri?retryWrites=true&w=majority";
   // "mongodb+srv://todoapp:8268@cluster0-ygbdi.mongodb.net/naukri?retryWrites=true&w=majority";
 const CONNECTIONSTRIN =
   "mongodb://localhost:27017/naukri?retryWrites=true&w=majority";
