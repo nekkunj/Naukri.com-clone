@@ -36,4 +36,5 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 app.use("/", router);
+
 module.exports = app;

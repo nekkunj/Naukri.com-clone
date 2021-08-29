@@ -26,4 +26,5 @@ router.get(
   userControllers.isLoggedIn,
   jobControllers.candidatesApplied
 );
+
 module.exports = router;
